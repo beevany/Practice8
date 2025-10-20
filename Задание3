@@ -1,0 +1,41 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace p4ela
+{
+    internal class Program
+    {
+        public static void Main(string[] args)
+        {
+            int number;
+            int increment;
+
+            Console.Write("Введите число: ");
+            if (!int.TryParse(Console.ReadLine(), out number))
+            {
+                Console.WriteLine("Введите корректное целое число.");
+                return;
+            }
+
+            Console.Write("Введите величину увеличения: ");
+            if (!int.TryParse(Console.ReadLine(), out increment) || increment < 0)
+            {
+                Console.WriteLine("Величина увеличения должна быть неотрицательной.");
+                return;
+            }
+
+            Console.WriteLine($"Число до увеличения: {number}");
+            Number(ref number, increment);
+            Console.WriteLine($"Число после увеличения: {number}");
+        }
+
+        public static void Number(ref int num, int incrementValue)
+        {
+            num += incrementValue;
+        }
+    }
+
+}
